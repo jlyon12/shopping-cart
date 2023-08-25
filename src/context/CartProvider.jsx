@@ -13,7 +13,7 @@ const useCart = () => {
 };
 
 const CartProvider = ({ children }) => {
-	const [cart, setCart] = useState(null);
+	const [cart, setCart] = useState([]);
 
 	const cartObject = useMemo(() => {
 		return { cart, setCart };
