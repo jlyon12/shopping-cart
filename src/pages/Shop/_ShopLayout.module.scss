@@ -33,3 +33,10 @@
 	gap: 4rem;
 	padding: $padding-xlarge;
 }
+
+.productDetail {
+	background-color: #f3f3f3;
+	display: grid;
+	place-items: center;
+	padding: $padding-large;
+}

@@ -6,6 +6,9 @@ import Collections, {
 	loader as collectionsLoader,
 } from "./pages/Shop/Collections";
 import Products, { loader as productsLoader } from "./pages/Shop/Products";
+import ProductPage, {
+	loader as productPageLoader,
+} from "./pages/Shop/ProductPage";
 const Router = () => {
 	const router = createBrowserRouter([
 		{
@@ -25,6 +28,11 @@ const Router = () => {
 							path: "collections/:collectionHandle",
 							element: <Products />,
 							loader: productsLoader,
+						},
+						{
+							path: "collections/:collectionHandle/:productHandle",
+							element: <ProductPage />,
+							loader: productPageLoader,
 						},
 					],
 				},
