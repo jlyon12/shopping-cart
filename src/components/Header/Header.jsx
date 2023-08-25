@@ -1,7 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { BiShoppingBag } from "react-icons/bi";
+import { useCart } from "../../context/CartProvider";
 import styles from "./_header.module.scss";
 const Header = () => {
+	const { cart, setCart } = useCart();
 	return (
 		<header className={styles.header}>
 			<NavLink className={styles.title} to="/">
@@ -28,6 +30,7 @@ const Header = () => {
 				>
 					<BiShoppingBag size={24} />
 				</NavLink>
+				<p>{cart.length}</p>
 			</nav>
 		</header>
 	);
