@@ -1,0 +1,24 @@
+@use "/src/sass/index" as *;
+
+.pageNotFound {
+	flex-grow: 1;
+	display: grid;
+	place-content: center;
+	padding: $padding-large;
+	gap: 1rem;
+}
+.icon {
+	color: hsl(0, 100%, 60%);
+	margin: 0 auto;
+}
+
+a {
+	color: $clr-neutral-100;
+	text-decoration: none;
+}
+.errorBtn {
+	width: 100%;
+}
+.errorBtn:hover {
+	background-color: hsl(0, 100%, 60%);
+}
