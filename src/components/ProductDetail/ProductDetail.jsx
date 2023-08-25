@@ -1,7 +1,10 @@
 import propTypes from "prop-types";
+import { useCart } from "../../context/CartProvider";
 import styles from "./_ProductDetail.module.scss";
 
 const ProductDetail = ({ product }) => {
+	const { cart, setCart } = useCart();
+
 	const {
 		variants: {
 			edges: [
@@ -14,6 +17,16 @@ const ProductDetail = ({ product }) => {
 		},
 	} = product;
 	const price = Number(amount);
+	const cartItem = {
+		title: product.title,
+		imgUrl: product.featuredImage.url,
+		price: price,
+	};
+	const addToCart = () => {
+		if (cart === null) {
+			setCart([cartItem]);
+		} else setCart((prevCart) => [...prevCart, cartItem]);
+	};
 
 	return (
 		<div className={styles.productContainer}>
@@ -36,9 +49,14 @@ const ProductDetail = ({ product }) => {
 				</div>
 				<div className={styles.addToCart}>
 					<p>
-						Quantity: <span></span>
+						Quantity:
+						<span>
+							{` ${cart.filter((item) => item.title === product.title).length}`}
+						</span>
 					</p>
-					<button className={styles.addBtn}>Add to cart</button>
+					<button className={styles.addBtn} onClick={addToCart}>
+						Add to cart
+					</button>
 				</div>
 				<p className={styles.description}>{product.description}</p>
 			</div>
