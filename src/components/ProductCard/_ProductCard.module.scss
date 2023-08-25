@@ -12,6 +12,15 @@
 		transform: scale(1.1);
 	}
 }
+.linkWrapper {
+	color: $clr-neutral-900;
+	text-decoration: underline rgba(0, 0, 0, 0);
+	transition: text-decoration-color 500ms;
+	font-weight: $fw-semibold;
+}
+.linkWrapper:hover {
+	text-decoration-color: #555555;
+}
 
 .productCard {
 	overflow: hidden;
@@ -30,22 +39,15 @@
 		animation: imgHover 750ms ease-in;
 		transform: scale(1.1);
 	}
-	.linkWrapper {
-		color: $clr-neutral-900;
-		text-decoration: underline rgba(0, 0, 0, 0);
-		transition: text-decoration-color 500ms;
+	.text {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5em;
 		margin: 1rem 0.5em;
-		font-weight: $fw-semibold;
 		span {
 			margin-left: auto;
 			font-weight: $fw-regular;
 			color: #555555;
 		}
-	}
-	.linkWrapper:hover {
-		text-decoration-color: #555555;
 	}
 }

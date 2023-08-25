@@ -16,17 +16,19 @@ const ProductCard = ({ product }) => {
 	} = product;
 	const price = Number(amount);
 	return (
-		<div className={styles.productCard}>
-			<div className={styles.zoomWrapper}>
-				<img
-					src={product.featuredImage.url}
-					alt={`${product.title} product image`}
-				/>
+		<Link to={product.handle} className={styles.linkWrapper}>
+			<div className={styles.productCard}>
+				<div className={styles.zoomWrapper}>
+					<img
+						src={product.featuredImage.url}
+						alt={`${product.title} product image`}
+					/>
+				</div>
+				<p className={styles.text}>
+					{product.title} <span>${price}</span>
+				</p>
 			</div>
-			<Link to={product.handle} className={styles.linkWrapper}>
-				{product.title} <span>${price}</span>
-			</Link>
-		</div>
+		</Link>
 	);
 };
 
