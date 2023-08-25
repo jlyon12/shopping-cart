@@ -5,16 +5,19 @@ import styles from "./_CollectionCard.module.scss";
 
 const CollectionCard = ({ collection }) => {
 	return (
-		<div className={styles.collectionCard}>
-			<img
-				src={collection.image.url}
-				alt={`${collection.title} collection image`}
-			/>
-			<Link to={collection.handle} className={styles.linkWrapper}>
-				{collection.title}
-				<HiOutlineArrowRight />
-			</Link>
-		</div>
+		<Link to={collection.handle} className={styles.linkWrapper}>
+			<div className={styles.collectionCard}>
+				<img
+					src={collection.image.url}
+					alt={`${collection.title} collection image`}
+				/>
+
+				<div className={styles.text}>
+					{collection.title}
+					<HiOutlineArrowRight />
+				</div>
+			</div>
+		</Link>
 	);
 };
 

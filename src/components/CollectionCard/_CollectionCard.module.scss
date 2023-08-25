@@ -18,30 +18,37 @@
 		gap: 1.5em;
 	}
 }
-
+.linkWrapper {
+	display: flex;
+	flex-direction: column;
+	.text {
+		animation: linkHoverOut 400ms ease-in-out;
+	}
+	color: $clr-neutral-900;
+	text-decoration: none;
+	font-weight: $fw-bold;
+}
+.linkWrapper:hover {
+	.text {
+		animation: linkHoverIn 400ms ease-in-out;
+		gap: 1.5rem;
+	}
+}
 .collectionCard {
+	flex-grow: 1;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
-
 	border-radius: 0.75rem;
 	img {
 		object-fit: fill;
 		flex-grow: 1;
 		border-radius: 0.75rem;
 	}
-	.linkWrapper {
-		animation: linkHoverOut 400ms ease-in-out;
-		color: $clr-neutral-900;
-		text-decoration: none;
+	.text {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.5em;
 		margin: 1rem 0.5em;
-		font-weight: $fw-bold;
-	}
-	.linkWrapper:hover {
-		animation: linkHoverIn 400ms ease-in-out;
-		gap: 1.5rem;
 	}
 }
