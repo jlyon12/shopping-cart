@@ -1,10 +1,12 @@
 import { useLoaderData } from "react-router";
+
 import { getProductsInCollection } from "../../api/api";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import styles from "./_ShopLayout.module.scss";
 
-const loader = () => {
-	return getProductsInCollection("men");
+const loader = ({ params }) => {
+	const { collectionHandle } = params;
+	return getProductsInCollection(collectionHandle);
 };
 const Products = () => {
 	const data = useLoaderData();

@@ -22,7 +22,7 @@ const Router = () => {
 							loader: collectionsLoader,
 						},
 						{
-							path: "collections/men",
+							path: "collections/:collectionHandle",
 							element: <Products />,
 							loader: productsLoader,
 						},
