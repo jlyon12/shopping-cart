@@ -25,6 +25,7 @@ const ShopLayout = () => {
 				<NavLink
 					to="collections"
 					className={({ isActive }) => (isActive ? styles.active : null)}
+					end
 				>
 					Collections
 				</NavLink>
