@@ -5,19 +5,19 @@ const ShopLayout = () => {
 		<main>
 			<nav className={styles.nav} aria-label="secondary">
 				<NavLink
-					to="men"
+					to="collections/men"
 					className={({ isActive }) => (isActive ? styles.active : null)}
 				>
 					Men
 				</NavLink>
 				<NavLink
-					to="women"
+					to="collections/women"
 					className={({ isActive }) => (isActive ? styles.active : null)}
 				>
 					Women
 				</NavLink>
 				<NavLink
-					to="unisex"
+					to="collections/unisex"
 					className={({ isActive }) => (isActive ? styles.active : null)}
 				>
 					Unisex
