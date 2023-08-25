@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import styles from "./_ShopLayout.module.scss";
 const ShopLayout = () => {
 	return (
@@ -29,6 +29,7 @@ const ShopLayout = () => {
 					Collections
 				</NavLink>
 			</nav>
+			<Outlet />
 		</main>
 	);
 };
