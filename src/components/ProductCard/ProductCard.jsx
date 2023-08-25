@@ -15,7 +15,6 @@ const ProductCard = ({ product }) => {
 		},
 	} = product;
 	const price = Number(amount);
-	const idStr = product.id.split("/")[4];
 	return (
 		<div className={styles.productCard}>
 			<div className={styles.zoomWrapper}>
@@ -24,7 +23,7 @@ const ProductCard = ({ product }) => {
 					alt={`${product.title} product image`}
 				/>
 			</div>
-			<Link to={idStr} className={styles.linkWrapper}>
+			<Link to={product.handle} className={styles.linkWrapper}>
 				{product.title} <span>${price}</span>
 			</Link>
 		</div>
@@ -32,6 +31,7 @@ const ProductCard = ({ product }) => {
 };
 
 const productShape = propTypes.shape({
+	handle: propTypes.string,
 	id: propTypes.string,
 	title: propTypes.string,
 	featuredImage: propTypes.shape({

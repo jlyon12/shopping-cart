@@ -21,7 +21,7 @@ const getCollections = async () => {
 
 const getProductsInCollection = async (collectionHandle) => {
 	const response = await fetch(
-		`https://mock.shop/api?query={collection(handle:%20%22${collectionHandle}%22){title%20products(first:%2020){edges%20{node%20{id%20title%20featuredImage%20{id%20url}%20variants(first:%201){edges%20{node%20{price%20{amount%20currencyCode}}}}}}}}}`
+		`https://mock.shop/api?query={collection(handle:%20%22${collectionHandle}%22){title%20products(first:%2020){edges%20{node%20{id%20title%20handle%20featuredImage%20{id%20url}%20variants(first:%201){edges%20{node%20{price%20{amount%20currencyCode}}}}}}}}}`
 	);
 	if (!response.ok) {
 		throw {
@@ -40,13 +40,13 @@ const getProductsInCollection = async (collectionHandle) => {
 	return edges;
 };
 
-const getProductVariants = async (productId) => {
+const getProductVariants = async (productHandle) => {
 	const response = await fetch(
-		`https://mock.shop/api?query={product(id:%20%22gid://shopify/Product/${productId}%22){id%20title%20description%20featuredImage%20{id%20url}%20variants(first:%2020){edges%20{node%20{id%20title%20image%20{url}%20price%20{amount%20currencyCode}}}}}}`
+		`https://mock.shop/api?query={product(handle:%20%22${productHandle}%22){id%20title%20description%20featuredImage%20{id%20url}%20variants(first:%2020){edges%20{node%20{id%20title%20image%20{url}%20price%20{amount%20currencyCode}}}}}}`
 	);
 	if (!response.ok) {
 		throw {
-			message: "Couldn't fetch collections from server",
+			message: "Couldn't fetch product from server",
 			statusText: response.statusText,
 			status: response.status,
 		};
