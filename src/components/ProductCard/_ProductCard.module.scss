@@ -1,0 +1,51 @@
+@use "/src/sass/index.scss" as *;
+
+@keyframes imgHover {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.1);
+	}
+	100% {
+		transform: scale(1.1);
+	}
+}
+
+.productCard {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	.zoomWrapper {
+		overflow: hidden;
+		border-radius: 0.75rem;
+	}
+	img {
+		object-fit: fill;
+		flex-grow: 1;
+		border-radius: 0.75rem;
+	}
+	img:hover {
+		animation: imgHover 750ms ease-in;
+		transform: scale(1.1);
+	}
+	.linkWrapper {
+		color: $clr-neutral-900;
+		text-decoration: underline rgba(0, 0, 0, 0);
+		transition: text-decoration-color 500ms;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5em;
+		margin: 1rem 0.5em;
+		font-weight: $fw-semibold;
+		span {
+			margin-left: auto;
+			font-weight: $fw-regular;
+			color: #555555;
+		}
+	}
+	.linkWrapper:hover {
+		text-decoration-color: #555555;
+	}
+}
