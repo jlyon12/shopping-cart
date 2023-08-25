@@ -39,5 +39,21 @@ const getProductsInCollection = async (collectionHandle) => {
 	} = data;
 	return edges;
 };
-// getProductsInCollection("men");
-export { getCollections, getProductsInCollection };
+
+const getProductVariants = async (productId) => {
+	const response = await fetch(
+		`https://mock.shop/api?query={product(id:%20%22gid://shopify/Product/${productId}%22){id%20title%20description%20featuredImage%20{id%20url}%20variants(first:%2020){edges%20{node%20{id%20title%20image%20{url}%20price%20{amount%20currencyCode}}}}}}`
+	);
+	if (!response.ok) {
+		throw {
+			message: "Couldn't fetch collections from server",
+			statusText: response.statusText,
+			status: response.status,
+		};
+	}
+
+	const { data } = await response.json();
+	const { product } = data;
+	return product;
+};
+export { getCollections, getProductsInCollection, getProductVariants };
