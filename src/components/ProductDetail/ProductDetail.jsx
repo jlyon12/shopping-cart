@@ -25,7 +25,7 @@ const ProductDetail = ({ product }) => {
 			</div>
 			<div className={styles.productDetails}>
 				<h1 className={styles.title}>{product.title}</h1>
-				<dive className={styles.price}>
+				<div className={styles.price}>
 					<p>
 						${price}
 						<span> {currencyCode}</span>
@@ -33,7 +33,7 @@ const ProductDetail = ({ product }) => {
 					<p>
 						<span>Shipping calculated at checkout</span>
 					</p>
-				</dive>
+				</div>
 				<div className={styles.addToCart}>
 					<p>
 						Quantity: <span></span>
