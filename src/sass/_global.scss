@@ -1,4 +1,8 @@
 @use "./variables" as *;
+html,
+body {
+	overflow-x: hidden;
+}
 #root {
 	display: flex;
 	flex-direction: column;
@@ -6,6 +10,7 @@
 }
 
 body {
+	position: relative;
 	font-family: $ff-primary;
 	background-color: #f3f3f3;
 	color: $clr-neutral-900;
