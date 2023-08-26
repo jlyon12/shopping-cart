@@ -6,7 +6,7 @@ import styles from "./_ProductDetail.module.scss";
 
 const ProductDetail = ({ product }) => {
 	const [desiredQuantity, setDesiredQuantity] = useState(1);
-	const { cart, setCart } = useCart();
+	const { setCart } = useCart();
 
 	const {
 		variants: {

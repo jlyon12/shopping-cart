@@ -1,3 +1,4 @@
+import propTypes from "prop-types";
 import styles from "./_QuantityCounter.module.scss";
 const QuantityCounter = ({ desiredQuantity, setDesiredQuantity }) => {
 	const handleChange = (e) => {
@@ -37,5 +38,10 @@ const QuantityCounter = ({ desiredQuantity, setDesiredQuantity }) => {
 			</button>
 		</div>
 	);
+};
+
+QuantityCounter.propTypes = {
+	desiredQuantity: propTypes.number,
+	setDesiredQuantity: propTypes.func,
 };
 export default QuantityCounter;
