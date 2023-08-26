@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PageLayout from "./components/PageLayout";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
+import Error from "./components/Error/Errror";
 import Home, { loader as homeLoader } from "./pages/Home/Home";
 import ShopLayout from "./pages/Shop/ShopLayout";
 import Collections, {
@@ -15,6 +16,7 @@ const Router = () => {
 		{
 			path: "/",
 			element: <PageLayout />,
+			errorElement: <Error />,
 			children: [
 				{
 					index: true,
