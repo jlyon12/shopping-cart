@@ -1,5 +1,6 @@
 import propTypes from "prop-types";
 import { useCart } from "../../context/CartProvider";
+import QuantityCounter from "../QuantityCounter/QuantityCounter";
 import styles from "./_ProductDetail.module.scss";
 
 const ProductDetail = ({ product }) => {
@@ -48,12 +49,8 @@ const ProductDetail = ({ product }) => {
 					</p>
 				</div>
 				<div className={styles.addToCart}>
-					<p>
-						Quantity:
-						<span>
-							{` ${cart.filter((item) => item.title === product.title).length}`}
-						</span>
-					</p>
+					<p>Quantity:</p>
+					<QuantityCounter />
 					<button className={styles.addBtn} onClick={addToCart}>
 						Add to cart
 					</button>

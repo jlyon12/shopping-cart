@@ -1,0 +1,40 @@
+@use "/src/sass/index.scss" as *;
+.quantityCounter {
+	border-radius: 0.5rem;
+	overflow: hidden;
+	border: 1px solid #505050;
+	display: grid;
+	grid-template-columns: repeat(3, min-content);
+}
+
+.quantityBtn {
+	&:first-of-type {
+		border-right: 1px solid #505050;
+	}
+	&:last-of-type {
+		border-left: 1px solid #505050;
+	}
+	&:hover {
+		background-color: #e3e3e3;
+	}
+
+	border-radius: 0;
+	width: 3rem;
+	background-color: #f3f3f3;
+	color: #7b7b7b;
+	font-size: $fs-large;
+}
+input[type="number"] {
+	-moz-appearance: textfield;
+	color: $clr-neutral-900;
+	font-weight: $fw-semibold;
+	width: 4rem;
+	border: transparent;
+
+	text-align: center;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
