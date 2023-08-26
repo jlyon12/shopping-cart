@@ -16,7 +16,10 @@ const ProductCard = ({ product }) => {
 	} = product;
 	const price = Number(amount);
 	return (
-		<Link to={product.handle} className={styles.linkWrapper}>
+		<Link
+			to={`/shop/products/${product.handle}`}
+			className={styles.linkWrapper}
+		>
 			<div className={styles.productCard}>
 				<div className={styles.zoomWrapper}>
 					<img

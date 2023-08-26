@@ -38,7 +38,7 @@ const Router = () => {
 							loader: productsLoader,
 						},
 						{
-							path: "collections/:collectionHandle/:productHandle",
+							path: "products/:productHandle",
 							element: <ProductPage />,
 							loader: productPageLoader,
 						},
