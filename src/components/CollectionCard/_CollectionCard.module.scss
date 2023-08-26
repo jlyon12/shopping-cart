@@ -27,6 +27,7 @@
 	color: $clr-neutral-900;
 	text-decoration: none;
 	font-weight: $fw-bold;
+	filter: drop-shadow(2px 2px 6px hsla(0, 0%, 80%, 0.5));
 }
 .linkWrapper:hover {
 	.text {

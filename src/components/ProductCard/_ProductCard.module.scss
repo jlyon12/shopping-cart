@@ -17,6 +17,7 @@
 	text-decoration: underline rgba(0, 0, 0, 0);
 	transition: text-decoration-color 500ms;
 	font-weight: $fw-semibold;
+	filter: drop-shadow(2px 2px 4px hsl(0, 0%, 80%));
 }
 .linkWrapper:hover {
 	text-decoration-color: #555555;

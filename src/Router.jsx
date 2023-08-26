@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PageLayout from "./components/PageLayout";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
+import Home, { loader as homeLoader } from "./pages/Home/Home";
 import ShopLayout from "./pages/Shop/ShopLayout";
 import Collections, {
 	loader as collectionsLoader,
@@ -15,6 +16,11 @@ const Router = () => {
 			path: "/",
 			element: <PageLayout />,
 			children: [
+				{
+					index: true,
+					element: <Home />,
+					loader: homeLoader,
+				},
 				{
 					path: "/shop",
 					element: <ShopLayout />,
