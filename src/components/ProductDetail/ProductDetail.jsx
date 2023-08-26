@@ -1,9 +1,11 @@
+import { useState } from "react";
 import propTypes from "prop-types";
 import { useCart } from "../../context/CartProvider";
 import QuantityCounter from "../QuantityCounter/QuantityCounter";
 import styles from "./_ProductDetail.module.scss";
 
 const ProductDetail = ({ product }) => {
+	const [desiredQuantity, setDesiredQuantity] = useState(1);
 	const { cart, setCart } = useCart();
 
 	const {
@@ -24,9 +26,8 @@ const ProductDetail = ({ product }) => {
 		price: price,
 	};
 	const addToCart = () => {
-		if (cart === null) {
-			setCart([cartItem]);
-		} else setCart((prevCart) => [...prevCart, cartItem]);
+		const quantityToAdd = [...new Array(desiredQuantity)].map(() => cartItem);
+		setCart((prevCart) => [...prevCart, ...quantityToAdd]);
 	};
 
 	return (
@@ -50,7 +51,10 @@ const ProductDetail = ({ product }) => {
 				</div>
 				<div className={styles.addToCart}>
 					<p>Quantity:</p>
-					<QuantityCounter />
+					<QuantityCounter
+						desiredQuantity={desiredQuantity}
+						setDesiredQuantity={setDesiredQuantity}
+					/>
 					<button className={styles.addBtn} onClick={addToCart}>
 						Add to cart
 					</button>

@@ -1,8 +1,5 @@
-import { useState } from "react";
 import styles from "./_QuantityCounter.module.scss";
-const QuantityCounter = () => {
-	const [desiredQuantity, setDesiredQuantity] = useState(1);
-
+const QuantityCounter = ({ desiredQuantity, setDesiredQuantity }) => {
 	const handleChange = (e) => {
 		const { value, min, max } = e.target;
 		const validatedValue = Math.max(
