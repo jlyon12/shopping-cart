@@ -6,7 +6,7 @@ import styles from "./_ProductDetail.module.scss";
 
 const ProductDetail = ({ product }) => {
 	const [desiredQuantity, setDesiredQuantity] = useState(1);
-	const { setCart } = useCart();
+	const { cart, setCart } = useCart();
 
 	const {
 		variants: {
@@ -20,14 +20,31 @@ const ProductDetail = ({ product }) => {
 		},
 	} = product;
 	const price = Number(amount);
-	const cartItem = {
+
+	const newCartEntry = {
+		productId: product.id,
 		title: product.title,
 		imgUrl: product.featuredImage.url,
 		price: price,
+		quantity: desiredQuantity,
 	};
+
 	const addToCart = () => {
-		const quantityToAdd = [...new Array(desiredQuantity)].map(() => cartItem);
-		setCart((prevCart) => [...prevCart, ...quantityToAdd]);
+		const cartContainsProduct = cart.some(
+			(cartItem) => cartItem.productId === product.id
+		);
+		const updatedCartQuantities = cart.map((cartItem) => {
+			if (cartItem.productId === product.id)
+				return {
+					...cartItem,
+					quantity: cartItem.quantity + desiredQuantity,
+				};
+			else return cartItem;
+		});
+
+		cartContainsProduct
+			? setCart(updatedCartQuantities)
+			: setCart((prevCart) => [...prevCart, newCartEntry]);
 	};
 
 	return (

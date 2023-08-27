@@ -3,7 +3,11 @@ import { BiShoppingBag } from "react-icons/bi";
 import { useCart } from "../../context/CartProvider";
 import styles from "./_header.module.scss";
 const Header = () => {
-	const { cart, setCart } = useCart();
+	const { cart } = useCart();
+	const itemsInCart = cart.reduce(
+		(total, cartItem) => total + cartItem.quantity,
+		0
+	);
 	return (
 		<header className={styles.header}>
 			<NavLink className={styles.title} to="/">
@@ -30,7 +34,7 @@ const Header = () => {
 				>
 					<BiShoppingBag size={24} />
 				</NavLink>
-				<p>{cart.length}</p>
+				<p>{itemsInCart}</p>
 			</nav>
 		</header>
 	);
