@@ -5,9 +5,8 @@ import QuantityCounter from "../QuantityCounter/QuantityCounter";
 import styles from "./_ProductDetail.module.scss";
 
 const ProductDetail = ({ product }) => {
-	const [desiredQuantity, setDesiredQuantity] = useState(1);
 	const { cart, setCart } = useCart();
-
+	const [quantityToAdd, setQuantityToAdd] = useState(1);
 	const {
 		variants: {
 			edges: [
@@ -27,9 +26,24 @@ const ProductDetail = ({ product }) => {
 		title: product.title,
 		imgUrl: product.featuredImage.url,
 		price: price,
-		quantity: desiredQuantity,
+		quantity: quantityToAdd,
 	};
-
+	const handleIncrement = () => {
+		if (quantityToAdd >= 250) return;
+		setQuantityToAdd((prev) => prev + 1);
+	};
+	const handleDecrement = () => {
+		if (quantityToAdd <= 1) return;
+		setQuantityToAdd((prev) => prev - 1);
+	};
+	const handleChange = (e) => {
+		const { value, min, max } = e.target;
+		const validatedValue = Math.max(
+			Number(min),
+			Math.min(Number(max), Number(value))
+		);
+		setQuantityToAdd(Number(validatedValue));
+	};
 	const addToCart = () => {
 		const cartContainsProduct = cart.some(
 			(cartItem) => cartItem.productId === product.id
@@ -38,7 +52,7 @@ const ProductDetail = ({ product }) => {
 			if (cartItem.productId === product.id)
 				return {
 					...cartItem,
-					quantity: cartItem.quantity + desiredQuantity,
+					quantity: cartItem.quantity + quantityToAdd,
 				};
 			else return cartItem;
 		});
@@ -70,8 +84,10 @@ const ProductDetail = ({ product }) => {
 				<div className={styles.addToCart}>
 					<p>Quantity:</p>
 					<QuantityCounter
-						desiredQuantity={desiredQuantity}
-						setDesiredQuantity={setDesiredQuantity}
+						controlledState={quantityToAdd}
+						handleChange={handleChange}
+						handleIncrement={handleIncrement}
+						handleDecrement={handleDecrement}
 					/>
 					<button className={styles.addBtn} onClick={addToCart}>
 						Add to cart

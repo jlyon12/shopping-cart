@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { RiDeleteBinLine } from "react-icons/ri";
 import { useCart } from "../../context/CartProvider";
 import QuantityCounter from "../../components/QuantityCounter/QuantityCounter";
 import styles from "./_Cart.module.scss";
@@ -8,7 +9,57 @@ const Cart = () => {
 		(total, cartItem) => total + cartItem.quantity * cartItem.price,
 		0
 	);
+
 	const cartItems = cart.map((cartItem) => {
+		const handleRemoval = () => {
+			setCart((prevCart) =>
+				prevCart.filter((c) => c.productId !== cartItem.productId)
+			);
+		};
+		const handleIncrement = () => {
+			if (cartItem.quantity >= 250) return;
+			const updatedCartQuantities = cart.map((product) => {
+				if (product.productId === cartItem.productId)
+					return {
+						...cartItem,
+						quantity: cartItem.quantity + 1,
+					};
+				else return product;
+			});
+
+			setCart(updatedCartQuantities);
+		};
+		const handleDecrement = () => {
+			if (cartItem.quantity <= 1) return;
+			const updatedCartQuantities = cart.map((product) => {
+				if (product.productId === cartItem.productId)
+					return {
+						...cartItem,
+						quantity: cartItem.quantity - 1,
+					};
+				else return product;
+			});
+
+			setCart(updatedCartQuantities);
+		};
+		const handleChange = (e) => {
+			const { value, min, max } = e.target;
+			const validatedValue = Math.max(
+				Number(min),
+				Math.min(Number(max), Number(value))
+			);
+			const updatedCartQuantities = cart.map((product) => {
+				if (product.productId === cartItem.productId)
+					return {
+						...cartItem,
+						quantity: validatedValue,
+					};
+				else return product;
+			});
+
+			setCart(updatedCartQuantities);
+		};
+
 		return (
 			<tr key={cartItem.name} className={styles.cartItem}>
 				<td className={styles.img}>
@@ -32,7 +83,15 @@ const Cart = () => {
 				</td>
 				<td className={styles.quantity}>
 					<div className={styles.quantityWrapper}>
-						<QuantityCounter quantity={cartItem.quantity} />
+						<QuantityCounter
+							controlledState={cartItem.quantity}
+							handleChange={handleChange}
+							handleIncrement={handleIncrement}
+							handleDecrement={handleDecrement}
+						/>
+						<button onClick={handleRemoval} className={styles.removeItemBtn}>
+							<RiDeleteBinLine size={24} />
+						</button>
 					</div>
 				</td>
 				<td className={styles.total}>

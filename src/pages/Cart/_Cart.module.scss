@@ -82,7 +82,10 @@
 			.imgWrapper {
 				width: 110px;
 			}
-
+			.quantityWrapper {
+				display: flex;
+				gap: 1.5rem;
+			}
 			.total {
 				justify-content: end;
 				text-align: end;
@@ -116,6 +119,14 @@
 	padding: 1rem 2rem;
 	font-size: $fs-medium;
 	font-weight: $fw-bold;
+}
+.removeItemBtn {
+	padding: 0;
+	background-color: transparent;
+	color: $clr-neutral-900;
+	&:hover {
+		color: hsl(0, 100%, 64%);
+	}
 }
 @media screen and (max-width: 768px) {
 	.cartItem {

@@ -1,22 +1,11 @@
 import propTypes from "prop-types";
 import styles from "./_QuantityCounter.module.scss";
-const QuantityCounter = ({ desiredQuantity, setDesiredQuantity }) => {
-	const handleChange = (e) => {
-		const { value, min, max } = e.target;
-		const validatedValue = Math.max(
-			Number(min),
-			Math.min(Number(max), Number(value))
-		);
-		setDesiredQuantity(Number(validatedValue));
-	};
-	const handleIncrement = () => {
-		if (desiredQuantity >= 250) return;
-		setDesiredQuantity((prev) => prev + 1);
-	};
-	const handleDecrement = () => {
-		if (desiredQuantity <= 1) return;
-		setDesiredQuantity((prev) => prev - 1);
-	};
+const QuantityCounter = ({
+	controlledState,
+	handleIncrement,
+	handleDecrement,
+	handleChange,
+}) => {
 	return (
 		<div className={styles.quantityCounter}>
 			<button className={styles.quantityBtn} onClick={handleDecrement}>
@@ -29,7 +18,7 @@ const QuantityCounter = ({ desiredQuantity, setDesiredQuantity }) => {
 				min="1"
 				max="250"
 				placeholder="1"
-				value={desiredQuantity}
+				value={controlledState}
 				onChange={handleChange}
 			/>
 			<button className={styles.quantityBtn} onClick={handleIncrement}>
