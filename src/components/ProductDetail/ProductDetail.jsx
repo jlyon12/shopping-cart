@@ -23,6 +23,7 @@ const ProductDetail = ({ product }) => {
 
 	const newCartEntry = {
 		productId: product.id,
+		productHandle: product.handle,
 		title: product.title,
 		imgUrl: product.featuredImage.url,
 		price: price,

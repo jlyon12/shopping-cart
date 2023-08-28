@@ -42,7 +42,7 @@ const getProductsInCollection = async (collectionHandle) => {
 
 const getProductVariants = async (productHandle) => {
 	const response = await fetch(
-		`https://mock.shop/api?query={product(handle:%20%22${productHandle}%22){id%20title%20description%20featuredImage%20{id%20url}%20variants(first:%2020){edges%20{node%20{id%20title%20image%20{url}%20price%20{amount%20currencyCode}}}}}}`
+		`https://mock.shop/api?query={product(handle:%20%22${productHandle}%22){id%20handle%20title%20description%20featuredImage%20{id%20url}%20variants(first:%2020){edges%20{node%20{id%20title%20image%20{url}%20price%20{amount%20currencyCode}}}}}}`
 	);
 	if (!response.ok) {
 		throw {
