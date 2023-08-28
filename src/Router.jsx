@@ -11,6 +11,7 @@ import Products, { loader as productsLoader } from "./pages/Shop/Products";
 import ProductPage, {
 	loader as productPageLoader,
 } from "./pages/Shop/ProductPage";
+import Cart from "./pages/Cart/Cart";
 const Router = () => {
 	const router = createBrowserRouter([
 		{
@@ -44,6 +45,7 @@ const Router = () => {
 						},
 					],
 				},
+				{ path: "/cart", element: <Cart /> },
 				{ path: "*", element: <PageNotFound /> },
 			],
 		},

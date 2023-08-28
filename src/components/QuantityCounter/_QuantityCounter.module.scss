@@ -3,11 +3,11 @@
 	border-radius: 0.5rem;
 	overflow: hidden;
 	border: 1px solid #505050;
-	display: grid;
-	grid-template-columns: repeat(3, min-content);
+	display: flex;
 }
 
 .quantityBtn {
+	padding: 0 1rem;
 	&:first-of-type {
 		border-right: 1px solid #505050;
 	}
@@ -30,7 +30,6 @@ input[type="number"] {
 	font-weight: $fw-semibold;
 	width: 4rem;
 	border: transparent;
-
 	text-align: center;
 }
 input[type="number"]::-webkit-inner-spin-button,
