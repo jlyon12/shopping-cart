@@ -30,8 +30,16 @@
 	.cartItems {
 		display: table;
 		border-collapse: collapse;
-
 		thead {
+			th {
+				font: inherit;
+				text-transform: uppercase;
+				font-size: 0.875rem;
+				text-align: start;
+				&:nth-of-type(3) {
+					text-align: end;
+				}
+			}
 			tr {
 				display: grid;
 				grid-template-columns: repeat(4, 1fr);
@@ -41,56 +49,6 @@
 				th:last-of-type {
 					grid-column: 4/5;
 				}
-			}
-		}
-		tbody {
-			tr {
-				border-top: 1px solid hsl(0, 0%, 80%);
-			}
-		}
-		th {
-			font: inherit;
-			text-transform: uppercase;
-			font-size: 0.875rem;
-			text-align: start;
-			&:nth-of-type(3) {
-				text-align: end;
-			}
-		}
-		.itemLink {
-			color: inherit;
-			text-decoration: none;
-			font-weight: $fw-semibold;
-			&:hover {
-				text-decoration: underline;
-				text-underline-offset: 0.25em;
-			}
-		}
-		.cartItem {
-			display: grid;
-			grid-template: repeat(2, auto) / repeat(4, 1fr);
-			gap: 1rem;
-			align-items: center;
-			padding: $padding-medium 0;
-			td {
-				display: flex;
-			}
-
-			.details {
-				flex-direction: column;
-			}
-			.imgWrapper {
-				width: 110px;
-			}
-			.quantityWrapper {
-				display: flex;
-				gap: 1.5rem;
-			}
-			.total {
-				justify-content: end;
-				text-align: end;
-				font-weight: $fw-semibold;
-				font-size: $fs-medium;
 			}
 		}
 	}
@@ -104,10 +62,9 @@
 
 		.total {
 			font-size: $fs-large;
-
-			.bold {
-				font-weight: $fw-bold;
-			}
+		}
+		.bold {
+			font-weight: $fw-bold;
 		}
 		.shipping {
 			font-size: 0.875rem;
@@ -120,25 +77,8 @@
 	font-size: $fs-medium;
 	font-weight: $fw-bold;
 }
-.removeItemBtn {
-	padding: 0;
-	background-color: transparent;
-	color: $clr-neutral-900;
-	&:hover {
-		color: hsl(0, 100%, 64%);
-	}
-}
+
 @media screen and (max-width: 768px) {
-	.cartItem {
-		grid-template: repeat(2, auto) / repeat(3, 1fr);
-	}
-	.quantity {
-		grid-column: 1/3;
-	}
-	.total {
-		grid-row: 1/2;
-		grid-column: 4/5;
-	}
 	th:nth-of-type(2) {
 		display: none;
 	}
