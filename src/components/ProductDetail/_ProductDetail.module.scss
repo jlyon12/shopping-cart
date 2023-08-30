@@ -1,4 +1,5 @@
 @use "/src/sass/index.scss" as *;
+
 .productContainer {
 	text-align: center;
 	background-color: #f3f3f3;
@@ -34,11 +35,54 @@
 .colorSelection,
 .sizeSelection {
 	display: flex;
-	gap: 0.5rem;
+	gap: 1rem;
 	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
 	p {
 		width: 100%;
 	}
+}
+.colorSelection button {
+	position: relative;
+	height: 35px;
+	width: 35px;
+	border-radius: 50%;
+}
+
+.colorSelection button[value="Red"] {
+	background-color: #67404c;
+}
+.colorSelection button[value="Green"] {
+	background-color: #395b45;
+}
+.colorSelection button[value="Ocean"] {
+	background-color: #345158;
+}
+.colorSelection button[value="Olive"] {
+	background-color: #6f694b;
+}
+.colorSelection button[value="Purple"] {
+	background-color: #373155;
+}
+.activeColor {
+	outline-width: 2px;
+	outline-style: solid;
+	outline-color: rgb(0, 0, 0);
+	outline-offset: 4px;
+	border: 1px solid black;
+	border-radius: 50%;
+}
+
+.sizeSelection button {
+	background-color: #f3f3f3;
+	border: 1px solid #505050;
+	color: $clr-neutral-900;
+}
+.sizeSelection .activeSize {
+	font-weight: $fw-semibold;
+	background-color: $clr-neutral-900;
+	color: $clr-neutral-100;
 }
 
 .description {
@@ -55,6 +99,7 @@
 		width: fit-content;
 	}
 }
+
 @media screen and (min-width: 768px) {
 	.productContainer {
 		text-align: start;
@@ -72,5 +117,9 @@
 	.description {
 		margin: 0;
 		width: 60%;
+	}
+	.colorSelection,
+	.sizeSelection {
+		justify-content: start;
 	}
 }

@@ -108,17 +108,21 @@ const ProductDetail = ({ product, variants }) => {
 								key={colorOption}
 								value={colorOption}
 								onClick={handleColorSelection}
-							>
-								{colorOption}
-							</button>
+								className={
+									colorSelection === colorOption ? styles.activeColor : null
+								}
+							></button>
 						);
 					})}
 				</div>
-				<div className={styles.colorSelection}>
+				<div className={styles.sizeSelection}>
 					<p>Size:</p>
 					{sizeOptions.map((sizeOption) => {
 						return (
 							<button
+								className={
+									sizeSelection === sizeOption ? styles.activeSize : null
+								}
 								key={sizeOption}
 								value={sizeOption}
 								onClick={handleSizeSelection}
