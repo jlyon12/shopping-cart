@@ -54,6 +54,9 @@ const getProductVariants = async (productHandle) => {
 
 	const { data } = await response.json();
 	const { product } = data;
-	return product;
+	const {
+		variants: { edges },
+	} = product;
+	return { product, edges };
 };
 export { getCollections, getProductsInCollection, getProductVariants };

@@ -10,13 +10,13 @@ const CartItem = ({ cartItem }) => {
 
 	const handleRemoval = () => {
 		setCart((prevCart) =>
-			prevCart.filter((c) => c.productId !== cartItem.productId)
+			prevCart.filter((c) => c.variantId !== cartItem.variantId)
 		);
 	};
 	const handleIncrement = () => {
 		if (cartItem.quantity >= 250) return;
 		const updatedCartQuantities = cart.map((product) => {
-			if (product.productId === cartItem.productId)
+			if (product.variantId === cartItem.variantId)
 				return {
 					...cartItem,
 					quantity: cartItem.quantity + 1,
@@ -29,7 +29,7 @@ const CartItem = ({ cartItem }) => {
 	const handleDecrement = () => {
 		if (cartItem.quantity <= 1) return;
 		const updatedCartQuantities = cart.map((product) => {
-			if (product.productId === cartItem.productId)
+			if (product.variantId === cartItem.variantId)
 				return {
 					...cartItem,
 					quantity: cartItem.quantity - 1,
@@ -46,7 +46,7 @@ const CartItem = ({ cartItem }) => {
 			Math.min(Number(max), Number(value))
 		);
 		const updatedCartQuantities = cart.map((product) => {
-			if (product.productId === cartItem.productId)
+			if (product.variantId === cartItem.variantId)
 				return {
 					...cartItem,
 					quantity: validatedValue,
@@ -58,14 +58,14 @@ const CartItem = ({ cartItem }) => {
 	};
 
 	return (
-		<tr key={cartItem.name} className={styles.cartItem}>
+		<tr key={cartItem.title} className={styles.cartItem}>
 			<td className={styles.img}>
 				<div className={styles.imgWrapper}>
 					<Link
 						to={`/shop/products/${cartItem.productHandle}`}
 						className={styles.itemLink}
 					>
-						<img src={cartItem.imgUrl} alt={`${cartItem.name} icon`} />
+						<img src={cartItem.imgUrl} alt={`${cartItem.title} icon`} />
 					</Link>
 				</div>
 			</td>
@@ -77,6 +77,8 @@ const CartItem = ({ cartItem }) => {
 					{cartItem.title}
 				</Link>
 				<p>${cartItem.price}</p>
+				<p>{cartItem.color}</p>
+				<p>{cartItem.size}</p>
 			</td>
 			<td className={styles.quantity}>
 				<div className={styles.quantityWrapper}>
@@ -100,10 +102,12 @@ const CartItem = ({ cartItem }) => {
 export default CartItem;
 
 const cartItemShape = propTypes.shape({
-	productId: propTypes.string,
+	variantId: propTypes.string,
 	productHandle: propTypes.string,
 	title: propTypes.string,
 	imgUrl: propTypes.string,
+	color: propTypes.string,
+	size: propTypes.string,
 	price: propTypes.number,
 	quantity: propTypes.number,
 });

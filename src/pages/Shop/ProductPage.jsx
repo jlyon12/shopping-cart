@@ -9,11 +9,11 @@ const loader = ({ params }) => {
 	return getProductVariants(productHandle);
 };
 const ProductPage = () => {
-	const data = useLoaderData();
+	const { product, edges } = useLoaderData();
 
 	return (
 		<section className={styles.productDetail}>
-			{<ProductDetail product={data} />}
+			{<ProductDetail product={product} variants={edges} />}
 		</section>
 	);
 };
