@@ -62,7 +62,7 @@ const CartItem = ({ cartItem }) => {
 			<td className={styles.img}>
 				<div className={styles.imgWrapper}>
 					<Link
-						to={`/shop/products/${cartItem.productHandle}`}
+						to={`/shop/products/${cartItem.productHandle}?variant=${cartItem.variantId}`}
 						className={styles.itemLink}
 					>
 						<img src={cartItem.imgUrl} alt={`${cartItem.title} icon`} />

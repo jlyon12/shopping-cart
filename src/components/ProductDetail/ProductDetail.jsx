@@ -1,48 +1,30 @@
 import { useState } from "react";
 import propTypes from "prop-types";
+import { useSearchParams } from "react-router-dom";
 import { useCart } from "../../context/CartProvider";
 import QuantityCounter from "../QuantityCounter/QuantityCounter";
 import styles from "./_ProductDetail.module.scss";
 
 const ProductDetail = ({ product, variants }) => {
-	console.log(variants);
-	const variantOptions = variants.map(({ node }) => {
-		return {
-			variantId: node.id,
-			color: node.title.split(" ")[2],
-			size: node.title.split(" ")[0],
-			imgUrl: node.image.url,
-			price: node.price.amount,
-			currencyCode: node.price.currencyCode,
-		};
-	});
+	const [searchParams, setSearchParams] = useSearchParams();
+	const matchingVariant =
+		variants.find(
+			(variant) => variant.variantId === searchParams.get("variant")
+		) || variants[0];
+
 	const { cart, setCart } = useCart();
+
 	const [quantityToAdd, setQuantityToAdd] = useState(1);
-	const [colorSelection, setColorSelection] = useState("Green");
-	const [sizeSelection, setSizeSelection] = useState("Small");
-	const matchingVariant = variantOptions.filter(
-		(v) => v.color === colorSelection && v.size === sizeSelection
-	)[0];
+	const [colorSelection, setColorSelection] = useState(matchingVariant.color);
+	const [sizeSelection, setSizeSelection] = useState(matchingVariant.size);
 	const [variant, setVariant] = useState(matchingVariant);
-	const {
-		variants: {
-			edges: [
-				{
-					node: {
-						price: { amount, currencyCode },
-					},
-				},
-			],
-		},
-	} = product;
+
 	const sizeOptions = Array.from(
-		new Set(variantOptions.map((variant) => variant.size))
+		new Set(variants.map((variant) => variant.size))
 	);
 	const colorOptions = Array.from(
-		new Set(variantOptions.map((variant) => variant.color))
+		new Set(variants.map((variant) => variant.color))
 	);
-
-	const price = Number(amount);
 
 	const newCartEntry = {
 		...variant,
@@ -53,18 +35,20 @@ const ProductDetail = ({ product, variants }) => {
 	const handleColorSelection = (e) => {
 		const color = e.target.value;
 		setColorSelection(color);
-		const matchingVariant = variantOptions.filter(
+		const updatedVariant = variants.filter(
 			(v) => v.color === color && v.size === sizeSelection
 		)[0];
-		setVariant(matchingVariant);
+		setVariant(updatedVariant);
+		setSearchParams({ variant: updatedVariant.variantId });
 	};
 	const handleSizeSelection = (e) => {
 		const size = e.target.value;
 		setSizeSelection(size);
-		const matchingVariant = variantOptions.filter(
+		const updatedVariant = variants.filter(
 			(v) => v.color === colorSelection && v.size === size
 		)[0];
-		setVariant(matchingVariant);
+		setVariant(updatedVariant);
+		setSearchParams({ variant: updatedVariant.variantId });
 	};
 	const handleIncrement = () => {
 		if (quantityToAdd >= 250) return;
@@ -109,8 +93,8 @@ const ProductDetail = ({ product, variants }) => {
 				<h1 className={styles.title}>{product.title}</h1>
 				<div className={styles.price}>
 					<p>
-						${price}
-						<span> {currencyCode}</span>
+						${variant.price}
+						<span> {variant.currencyCode}</span>
 					</p>
 					<p>
 						<span>Shipping calculated at checkout</span>
@@ -163,13 +147,12 @@ const ProductDetail = ({ product, variants }) => {
 };
 
 const variantShape = propTypes.shape({
-	node: propTypes.shape({
-		id: propTypes.string,
-		price: propTypes.shape({
-			amount: propTypes.string,
-			currencyCode: propTypes.string,
-		}),
-	}),
+	variantId: propTypes.string,
+	color: propTypes.string,
+	size: propTypes.string,
+	imgUrl: propTypes.string,
+	price: propTypes.number,
+	currencyCode: propTypes.string,
 });
 const productShape = propTypes.shape({
 	handle: propTypes.string,
