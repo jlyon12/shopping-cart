@@ -105,6 +105,7 @@ const ProductDetail = ({ product, variants }) => {
 					{colorOptions.map((colorOption) => {
 						return (
 							<button
+								title={colorOption}
 								key={colorOption}
 								value={colorOption}
 								onClick={handleColorSelection}
