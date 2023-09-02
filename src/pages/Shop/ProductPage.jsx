@@ -20,7 +20,7 @@ const ProductPage = () => {
 			currencyCode: node.price.currencyCode,
 		};
 	});
-	console.log(variantOptions);
+
 	return (
 		<section className={styles.productDetail}>
 			{<ProductDetail product={product} variants={variantOptions} />}

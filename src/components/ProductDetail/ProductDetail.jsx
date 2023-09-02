@@ -3,10 +3,12 @@ import propTypes from "prop-types";
 import { useSearchParams } from "react-router-dom";
 import { useCart } from "../../context/CartProvider";
 import QuantityCounter from "../QuantityCounter/QuantityCounter";
+import CartNotification from "../CartNotification/CartNotification";
 import styles from "./_ProductDetail.module.scss";
 
 const ProductDetail = ({ product, variants }) => {
 	const [searchParams, setSearchParams] = useSearchParams();
+	const [showCartNotification, setShowCartNotification] = useState(false);
 	const matchingVariant =
 		variants.find(
 			(variant) => variant.variantId === searchParams.get("variant")
@@ -32,6 +34,7 @@ const ProductDetail = ({ product, variants }) => {
 		title: product.title,
 		quantity: quantityToAdd,
 	};
+
 	const handleColorSelection = (e) => {
 		const color = e.target.value;
 		setColorSelection(color);
@@ -66,7 +69,7 @@ const ProductDetail = ({ product, variants }) => {
 		);
 		setQuantityToAdd(Number(validatedValue));
 	};
-	const addToCart = () => {
+	const addToCart = (e) => {
 		const cartContainsProduct = cart.some(
 			(cartItem) => cartItem.variantId === variant.variantId
 		);
@@ -82,10 +85,23 @@ const ProductDetail = ({ product, variants }) => {
 		cartContainsProduct
 			? setCart(updatedCartQuantities)
 			: setCart((prevCart) => [...prevCart, newCartEntry]);
+		e.stopPropagation();
+		setShowCartNotification(true);
 	};
 
 	return (
-		<div className={styles.productContainer}>
+		<div
+			className={styles.productContainer}
+			onClick={() => setShowCartNotification(false)}
+		>
+			{showCartNotification && (
+				<CartNotification
+					cartItem={cart.find(
+						(cartItem) => cartItem.variantId === variant.variantId
+					)}
+					setShowCartNotification={setShowCartNotification}
+				/>
+			)}
 			<div className={styles.zoomWrapper}>
 				<img src={variant.imgUrl} alt={`${product.title} product image`} />
 			</div>
