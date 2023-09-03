@@ -30,7 +30,9 @@ const QuantityCounter = ({
 };
 
 QuantityCounter.propTypes = {
-	desiredQuantity: propTypes.number,
-	setDesiredQuantity: propTypes.func,
+	controlledState: propTypes.number,
+	handleIncrement: propTypes.func,
+	handleDecrement: propTypes.func,
+	handleChange: propTypes.func,
 };
 export default QuantityCounter;

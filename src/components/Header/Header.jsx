@@ -33,8 +33,8 @@ const Header = () => {
 					}
 				>
 					<BiShoppingBag size={24} />
+					{itemsInCart > 0 && <p className={styles.counter}>{itemsInCart}</p>}
 				</NavLink>
-				<p>{itemsInCart}</p>
 			</nav>
 		</header>
 	);

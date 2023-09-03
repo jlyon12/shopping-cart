@@ -38,8 +38,20 @@
 }
 .cartLink,
 .cartLinkActive {
+	position: relative;
 	display: inline-flex;
 	align-items: center;
 	color: hsl(0, 0%, 45%);
 	gap: 0.25em;
+}
+
+.counter {
+	display: grid;
+	place-content: center;
+	background-color: $clr-neutral-900;
+	color: $clr-neutral-100;
+	font-size: $fs-small;
+	width: 1.5rem;
+	aspect-ratio: 1/1;
+	border-radius: 50%;
 }
