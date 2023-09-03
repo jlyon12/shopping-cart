@@ -29,6 +29,7 @@
 	}
 	.quantityWrapper {
 		display: flex;
+		flex-shrink: 0;
 		gap: 1.5rem;
 	}
 	.total {

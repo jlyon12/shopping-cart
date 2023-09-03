@@ -9,7 +9,7 @@ const Cart = () => {
 		0
 	);
 	const renderCartItems = cart.map((product) => (
-		<CartItem key={product.productId} cartItem={product} />
+		<CartItem key={product.variantId} cartItem={product} />
 	));
 
 	return (
@@ -17,7 +17,7 @@ const Cart = () => {
 			<section className={styles.cart}>
 				<div className={styles.header}>
 					<h1 className={styles.title}>Your cart</h1>
-					<Link to="/shop" className={styles.link}>
+					<Link to="/shop/collections" className={styles.link}>
 						Continue Shopping
 					</Link>
 				</div>
