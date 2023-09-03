@@ -34,11 +34,15 @@
 .item {
 	display: flex;
 	align-items: center;
+	text-align: left;
 	gap: 1em;
 	p:first-of-type {
 		font-weight: $fw-semibold;
+		font-size: $fs-medium;
 	}
-
+	p {
+		font-size: $fs-small;
+	}
 	.imgWrapper {
 		max-width: 75px;
 	}

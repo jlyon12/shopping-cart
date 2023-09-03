@@ -15,11 +15,11 @@
 .productDetails {
 	display: flex;
 	flex-direction: column;
+	gap: 1rem;
 }
 
 .title {
 	font-size: 3rem;
-	line-height: 2rem;
 	font-weight: $fw-bold;
 }
 .price {
