@@ -116,22 +116,24 @@ const ProductDetail = ({ product, variants }) => {
 						<span>Shipping calculated at checkout</span>
 					</p>
 				</div>
-				<div className={styles.colorSelection}>
-					<p>Color:</p>
-					{colorOptions.map((colorOption) => {
-						return (
-							<button
-								title={colorOption}
-								key={colorOption}
-								value={colorOption}
-								onClick={handleColorSelection}
-								className={
-									colorSelection === colorOption ? styles.activeColor : null
-								}
-							></button>
-						);
-					})}
-				</div>
+				{variant.color && (
+					<div className={styles.colorSelection}>
+						<p>Color:</p>
+						{colorOptions.map((colorOption) => {
+							return (
+								<button
+									title={colorOption}
+									key={colorOption}
+									value={colorOption}
+									onClick={handleColorSelection}
+									className={
+										colorSelection === colorOption ? styles.activeColor : null
+									}
+								></button>
+							);
+						})}
+					</div>
+				)}
 				<div className={styles.sizeSelection}>
 					<p>Size:</p>
 					{sizeOptions.map((sizeOption) => {

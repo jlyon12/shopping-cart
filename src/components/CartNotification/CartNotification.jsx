@@ -34,7 +34,7 @@ const CartNotification = ({ cartItem, setShowCartNotification }) => {
 				<div className={styles.details}>
 					<p>{cartItem.title}</p>
 					<p>Size: {cartItem.size}</p>
-					<p>Color: {cartItem.color}</p>
+					{cartItem.color && <p>Color: {cartItem.color}</p>}
 				</div>
 			</div>
 			<Link to="/cart">

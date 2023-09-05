@@ -77,7 +77,7 @@ const CartItem = ({ cartItem }) => {
 					{cartItem.title}
 				</Link>
 				<p>${cartItem.price}</p>
-				<p>{cartItem.color}</p>
+				{cartItem.color && <p>{cartItem.color}</p>}
 				<p>{cartItem.size}</p>
 			</td>
 			<td className={styles.quantity}>
