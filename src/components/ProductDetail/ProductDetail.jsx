@@ -128,7 +128,7 @@ const ProductDetail = ({ product, variants }) => {
 				</div>
 				{variant.color && (
 					<div className={styles.colorSelection}>
-						<p>Color:</p>
+						<p>Color : {variant.color}</p>
 						{colorOptions.map((colorOption) => {
 							return (
 								<button
@@ -145,7 +145,7 @@ const ProductDetail = ({ product, variants }) => {
 					</div>
 				)}
 				<div className={styles.sizeSelection}>
-					<p>Size:</p>
+					<p>Size</p>
 					{sizeOptions.map((sizeOption) => {
 						return (
 							<button
