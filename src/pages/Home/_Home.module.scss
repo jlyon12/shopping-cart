@@ -16,6 +16,10 @@
 	display: grid;
 	place-content: center;
 	text-align: center;
+	.smallText {
+		font-size: $fs-medium;
+		font-weight: $fw-light;
+	}
 	h2 {
 		place-self: center;
 		font-size: 2.5rem;
