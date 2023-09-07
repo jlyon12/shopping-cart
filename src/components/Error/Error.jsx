@@ -18,7 +18,7 @@ const Error = () => {
 				GitHub.
 			</p>
 
-			<Link to=".." className={styles.errorlink} path="relative">
+			<Link to=".." className={styles.errorLink} path="relative">
 				<button className={styles.errorBtn}>Go back to safety!</button>
 			</Link>
 		</main>

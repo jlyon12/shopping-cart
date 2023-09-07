@@ -8,8 +8,8 @@ const PageNotFound = () => {
 				<BiSolidError className={styles.icon} size={50} />
 				There is nothing here...
 			</h1>
-			<Link to="/" className={styles.link}>
-				<button className={styles.errorBtn}>Go to homepage</button>
+			<Link to=".." path="relative" className={styles.link}>
+				<button className={styles.errorBtn}>Go to back to previous page</button>
 			</Link>
 		</main>
 	);
