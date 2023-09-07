@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PageLayout from "./components/PageLayout";
 import { loader as searchLoader } from "./components/Search/Search";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
-import Error from "./components/Error/Errror";
+import Error from "./components/Error/Error";
 import Home, { loader as homeLoader } from "./pages/Home/Home";
 import ShopLayout from "./pages/Shop/ShopLayout";
 import Collections, {
