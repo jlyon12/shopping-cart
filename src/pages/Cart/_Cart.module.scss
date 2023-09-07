@@ -3,6 +3,7 @@
 .cartPage {
 	display: grid;
 	padding: $padding-large;
+	align-content: start;
 }
 
 .cart {
