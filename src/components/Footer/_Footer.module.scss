@@ -1,0 +1,97 @@
+@use "/src/sass/index.scss" as *;
+.footer {
+	background-color: $clr-neutral-900;
+	color: $clr-neutral-100;
+	display: grid;
+	place-content: center;
+	text-align: center;
+	gap: 2rem;
+	max-height: 400px;
+	padding: $padding-large;
+	h3 {
+		font-size: $fs-large;
+	}
+}
+.social {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	a {
+		color: inherit;
+	}
+	.twitter:hover {
+		color: #1da1f2;
+	}
+	.facebook:hover {
+		color: #4267b2;
+	}
+	.instagram:hover {
+		color: #e1306c;
+	}
+	.youtube:hover {
+		color: #ff0000;
+	}
+	.tiktok:hover {
+		color: #00f2ea;
+	}
+	.tumblr:hover {
+		color: #36465d;
+	}
+}
+
+.subscribeForm {
+	display: grid;
+	grid-template: 1fr/1fr 0.25fr;
+	gap: 0.5rem;
+	input[name="email"] {
+		border: 1px solid $clr-neutral-100;
+		background-color: transparent;
+		background-image: none;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		padding: 0.25rem 1.5rem;
+		border-radius: 0.5rem;
+		color: inherit;
+	}
+	.submit {
+		justify-self: start;
+		grid-row: 1/2;
+		grid-column: 2/3;
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+	.successMessage,
+	.errorMessage {
+		display: flex;
+		align-items: center;
+		justify-content: start;
+		gap: 1em;
+		grid-column: 1/2;
+	}
+	.successMessage svg {
+		color: hsl(120, 40%, 60%);
+	}
+	.errorMessage svg {
+		color: hsl(0, 85%, 65%);
+	}
+}
+
+.credit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1.5rem;
+	p {
+		font-size: $fs-small;
+		font-weight: $fw-semibold;
+	}
+	a {
+		color: inherit;
+		&:hover {
+			color: #6cc644;
+		}
+	}
+}
