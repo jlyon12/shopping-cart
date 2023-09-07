@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { BiShoppingBag } from "react-icons/bi";
 import { useCart } from "../../context/CartProvider";
 import Search from "../Search/Search";
-import styles from "./_header.module.scss";
+import styles from "./_Header.module.scss";
 const Header = () => {
 	const { cart } = useCart();
 	const itemsInCart = cart.reduce(
