@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import propTypes from "prop-types";
 import { useSearchParams } from "react-router-dom";
 import { useCart } from "../../context/CartProvider";
@@ -20,6 +20,15 @@ const ProductDetail = ({ product, variants }) => {
 	const [colorSelection, setColorSelection] = useState(matchingVariant.color);
 	const [sizeSelection, setSizeSelection] = useState(matchingVariant.size);
 	const [variant, setVariant] = useState(matchingVariant);
+
+	// TODO: refactor this to not use useEffect here. Bugfix for resetting state if search-bar is used while this component is rendered.
+	useEffect(() => {
+		setVariant(matchingVariant);
+		setColorSelection(matchingVariant.color);
+		setSizeSelection(matchingVariant.size);
+		setShowCartNotification(false);
+		setQuantityToAdd(1);
+	}, [matchingVariant]);
 
 	const sizeOptions = Array.from(
 		new Set(variants.map((variant) => variant.size))
@@ -93,6 +102,7 @@ const ProductDetail = ({ product, variants }) => {
 		<div
 			className={styles.productContainer}
 			onClick={() => setShowCartNotification(false)}
+			key={variant.variantId}
 		>
 			{showCartNotification && (
 				<CartNotification

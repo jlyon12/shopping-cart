@@ -59,4 +59,29 @@ const getProductVariants = async (productHandle) => {
 	} = product;
 	return { product, edges };
 };
-export { getCollections, getProductsInCollection, getProductVariants };
+
+const getAllProducts = async () => {
+	const response = await fetch(
+		`https://mock.shop/api?query={products(first:%20250){edges%20{node%20{id%20title%20handle%20featuredImage%20{url}}}}}`
+	);
+
+	if (!response.ok) {
+		throw {
+			message: "Couldn't fetch products from server",
+			statusText: response.statusText,
+			status: response.status,
+		};
+	}
+
+	const { data } = await response.json();
+	const {
+		products: { edges },
+	} = data;
+	return edges;
+};
+export {
+	getCollections,
+	getProductsInCollection,
+	getProductVariants,
+	getAllProducts,
+};

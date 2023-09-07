@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import PageLayout from "./components/PageLayout";
+import { loader as searchLoader } from "./components/Search/Search";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import Error from "./components/Error/Errror";
 import Home, { loader as homeLoader } from "./pages/Home/Home";
@@ -18,6 +19,7 @@ const Router = () => {
 			path: "/",
 			element: <PageLayout />,
 			errorElement: <Error />,
+			loader: searchLoader,
 			children: [
 				{
 					index: true,

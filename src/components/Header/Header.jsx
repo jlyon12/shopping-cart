@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { BiShoppingBag } from "react-icons/bi";
 import { useCart } from "../../context/CartProvider";
+import Search from "../Search/Search";
 import styles from "./_header.module.scss";
 const Header = () => {
 	const { cart } = useCart();
@@ -13,6 +14,7 @@ const Header = () => {
 			<NavLink className={styles.title} to="/">
 				_standard
 			</NavLink>
+			<Search />
 			<nav className={styles.nav} aria-label="primary">
 				<NavLink
 					to="/"
