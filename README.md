@@ -105,7 +105,7 @@ To get a local copy up and running follow these simple example steps.
 
 ## Usage
 
-<a href="https://cute-salamander-2bd0b1.netlify.app/" target="_blank"> Live Link </a> 👈🏻
+<a href="https://shopping-cart-tawny-psi.vercel.app/" target="_blank"> Live Link </a> 👈🏻
 <br/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
