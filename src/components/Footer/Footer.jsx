@@ -39,8 +39,8 @@ const Footer = () => {
 				</Link>
 			</div>
 			<div className={styles.credit}>
-				{/* <p>probableactions</p> */}
-				<Link to="http://www.github.com/probableactions">
+				{/* <p>jlyon12</p> */}
+				<Link to="http://www.github.com/jlyon12">
 					<FaGithub size={24} />
 				</Link>
 			</div>

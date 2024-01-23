@@ -14,7 +14,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/probableactions/shopping-cart">
+  <a href="https://github.com/jlyon12/shopping-cart">
     <img src="screenshots/logo.jpg" alt="Logo" width="200" height="80">
   </a>
 
@@ -23,14 +23,14 @@
   <p align="center">
     This project is part of The Odin Project react section. The project brief can be found <a href="https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart" target="_blank"> here</a>.
     <br />
-    <a href="https://github.com/probableactions/shopping-cart"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/jlyon12/shopping-cart"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/probableactions/shopping-cart">View Demo</a>
+    <a href="https://github.com/jlyon12/shopping-cart">View Demo</a>
     ·
-    <a href="https://github.com/probableactions/shopping-cart/issues">Report Bug</a>
+    <a href="https://github.com/jlyon12/shopping-cart/issues">Report Bug</a>
     ·
-    <a href="https://github.com/probableactions/shopping-cart/issues">Request Feature</a>
+    <a href="https://github.com/jlyon12/shopping-cart/issues">Request Feature</a>
   </p>
 </div>
 
@@ -92,7 +92,7 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/probableactions/shopping-cart.git
+   git clone https://github.com/jlyon12/shopping-cart.git
    ```
 2. Install NPM packages
    ```sh
@@ -110,7 +110,7 @@ To get a local copy up and running follow these simple example steps.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-See the [open issues](https://github.com/probableactions/shopping-cart/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/jlyon12/shopping-cart/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -143,7 +143,7 @@ Distributed under the MIT License. See `LICENSE.md` for more information.
 
 ## Contact
 
-Project Link: [https://github.com/probableactions/shopping-cart](https://github.com/probableactions/shopping-cart)
+Project Link: [https://github.com/jlyon12/shopping-cart](https://github.com/jlyon12/shopping-cart)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -163,16 +163,16 @@ Project Link: [https://github.com/probableactions/shopping-cart](https://github.
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/probableactions/shopping-cart.svg?style=for-the-badge
-[contributors-url]: https://github.com/probableactions/shopping-cart/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/probableactions/shopping-cart.svg?style=for-the-badge
-[forks-url]: https://github.com/probableactions/shopping-cart/network/members
-[stars-shield]: https://img.shields.io/github/stars/probableactions/shopping-cart.svg?style=for-the-badge
-[stars-url]: https://github.com/probableactions/shopping-cart/stargazers
-[issues-shield]: https://img.shields.io/github/issues/probableactions/shopping-cart.svg?style=for-the-badge
-[issues-url]: https://github.com/probableactions/shopping-cart/issues
-[license-shield]: https://img.shields.io/github/license/probableactions/shopping-cart.svg?style=for-the-badge
-[license-url]: https://github.com/probableactions/shopping-cart/blob/master/LICENSE.md
+[contributors-shield]: https://img.shields.io/github/contributors/jlyon12/shopping-cart.svg?style=for-the-badge
+[contributors-url]: https://github.com/jlyon12/shopping-cart/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/jlyon12/shopping-cart.svg?style=for-the-badge
+[forks-url]: https://github.com/jlyon12/shopping-cart/network/members
+[stars-shield]: https://img.shields.io/github/stars/jlyon12/shopping-cart.svg?style=for-the-badge
+[stars-url]: https://github.com/jlyon12/shopping-cart/stargazers
+[issues-shield]: https://img.shields.io/github/issues/jlyon12/shopping-cart.svg?style=for-the-badge
+[issues-url]: https://github.com/jlyon12/shopping-cart/issues
+[license-shield]: https://img.shields.io/github/license/jlyon12/shopping-cart.svg?style=for-the-badge
+[license-url]: https://github.com/jlyon12/shopping-cart/blob/master/LICENSE.md
 [product-screenshot]: screenshots/gallery.jpg
 [product-screenshot-2]: screenshots/product-detail.jpg
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
